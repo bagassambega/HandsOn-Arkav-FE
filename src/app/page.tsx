@@ -1,9 +1,13 @@
 import Nav from '../component/nav';
+import {CP} from "./competitive-programming/cp.tsx";
 
 const Page = () => {
     return (
-        <div className="bg-amber-300">
-            <Nav/>
+        <div className="bg-amber-400 min-h-screen">
+            <header>
+                <Nav/>
+            </header>
+            <CP/>
         </div>
     );
 };
