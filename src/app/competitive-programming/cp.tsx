@@ -1,6 +1,7 @@
 import CPLogo from '/public/Logo CP.svg';
 import {useEffect, useState} from "react";
 import StarPrize from '/public/star-prize.svg';
+import Accordion from "../../component/accordion.tsx";
 
 export const CP = () => {
     const [days, setDays] = useState(0);
@@ -35,7 +36,7 @@ export const CP = () => {
     })
 
   return (
-    <div className="flex flex-col h-[200vh] gap-0">
+    <div className="flex flex-col gap-0">
         <section className="flex flex-col gap-0 mt-24 justify-center items-center py-24" id="about">
             <img src={CPLogo} alt="Logo CP" className="w-64"/>
             <div className="bg-white p-4 w-2/5 flex flex-col items-center gap-5 md:w-3/5 sm:w-4/5">
@@ -92,17 +93,39 @@ export const CP = () => {
             </div>
         </section>
 
-        <section className="flex flex-col justify-center bg-blue-900 py-6" id="prize">
+        <section className="flex flex-col justify-center gap-12 bg-blue-900 py-6" id="prize">
             <h1 className="text-center text-white font-extrabold text-6xl">PRIZE</h1>
-            <div className="flex flex-row gap-5 justify-between">
-                <img src={StarPrize} alt="Star Prize" className="h-32 md:hidden sm:hidden"/>
-                <div className="flex flex-col gap-3">
-                    <div>
-                        <h3 className="text-white text-2xl font-bold">Juara 1</h3>
-                        <p className="text-white text-4xl font-bold">Rp 7.000.000</p>
+            <div className="flex flex-row gap-5 justify-center">
+                <img src={StarPrize} alt="Star Prize" className="h-[80vh] lg:block md:hidden sm:hidden"/>
+                <div className="flex flex-col gap-10">
+                    <div className="bg-red-600 w-[60vw] px-4 py-6">
+                        <h3 className="text-white text-3xl font-bold text-center">Juara 1</h3>
+                        <p className="text-white text-4xl font-bold text-center">Rp 7.000.000</p>
+                    </div>
+                    <div className="bg-red-600 w-[60vw] p-4">
+                        <h3 className="text-white text-3xl font-bold text-center">Juara 2</h3>
+                        <p className="text-white text-4xl font-bold text-center">Rp 5.000.000</p>
+                    </div>
+                    <div className="bg-red-600 w-[60vw] p-4">
+                        <h3 className="text-white text-3xl font-bold text-center">Juara 3</h3>
+                        <p className="text-white text-4xl font-bold text-center">Rp 3.000.000</p>
+                    </div>
+                    <div className="bg-red-600 w-[60vw] p-4">
+                        <h3 className="text-white text-3xl font-bold text-center">First Solver on Each Questions</h3>
+                        <p className="text-white text-4xl font-bold text-center">Rp 100.000</p>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section className="flex flex-col my-12 gap-10" id="faq">
+            <h1 className="text-6xl font-bold text-center">FAQ</h1>
+            <Accordion title="Apa itu Competitive Programming?" className="w-[80vw] mx-auto" titleClassName="rounded-md" descriptionClassName="rounded-b-md"
+                       description="Competitive Programming (CP) Arkavidia adalah sebuah kompetisi pemrograman yang bertujuan untuk menguji kemampuan analisis pemecahan masalah (problem solving) dan berpikir komputasional dengan cara menyelesaikan persoalan yang diberikan dengan bahasa pemrograman tertentu dalam batasan waktu dan memori yang telah ditentukan. Kompetisi terdiri dari dua tahap yaitu babak penyisihan dan babak final"/>
+            <Accordion title={"Apa saja syarat peserta competitive programming?"}  className="w-[80vw] mx-auto" titleClassName="rounded-md" descriptionClassName="rounded-b-md"
+                       description={"1. Peserta lomba merupakan 1 tim yang terdiri dari maksimal 3 mahasiswa tingkat S1 atau sederajat dari institusi yang sama.\n" +
+                "2. Peserta bukan merupakan anggota Himpunan Mahasiswa Informatika (HMIF) Institut Teknologi Bandung.\n" +
+                "3. Setiap peserta hanya terdaftar pada 1 tim pada cabang kompetisi yang sama."}/>
         </section>
     </div>
   );
